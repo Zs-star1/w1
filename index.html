@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الدرس الثاني - اللغة الإنجليزية - الصف الرابع</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Fredoka+One:wght@400&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 25%, #a5d6a7 50%, #81c784 75%, #66bb6a 100%);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* علامة مائية */
+        .watermark {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #2e7d32;
+            font-size: 12px;
+            font-weight: 600;
+            z-index: 1000;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* خلفية متحركة */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .leaf {
+            position: absolute;
+            background: rgba(76, 175, 80, 0.2);
+            border-radius: 0 100% 0 100%;
+            animation: leaf-fall 20s infinite linear;
+            transform-origin: center;
+        }
+
+        @keyframes leaf-fall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(15px);
+            padding: 30px;
+            border-radius: 25px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            color: #1b5e20;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-family: 'Fredoka One', cursive;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .header p {
+            color: #2e7d32;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .activity-card {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 25px;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .activity-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .activity-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .activity-card:hover::before {
+            left: 100%;
+        }
+
+        .activity-title {
+            color: #1b5e20;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .activity-number {
+            background: linear-gradient(135deg, #66bb6a, #388e3c);
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #66bb6a, #388e3c);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 5px;
+            box-shadow: 0 4px 15px rgba(102, 187, 106, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 187, 106, 0.4);
+            background: linear-gradient(135deg, #388e3c, #1b5e20);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .word-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .word-card {
+            background: rgba(255, 255, 255, 0.4);
+            padding: 15px;
+            border-radius: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .word-card:hover {
+            background: rgba(255, 255, 255, 0.6);
+            transform: scale(1.05);
+            border-color: #66bb6a;
+        }
+
+        .word-english {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #1b5e20;
+            margin-bottom: 5px;
+        }
+
+        .word-arabic {
+            font-size: 1rem;
+            color: #2e7d32;
+        }
+
+        .quiz-question {
+            background: rgba(255, 255, 255, 0.3);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 15px 0;
+        }
+
+        .quiz-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .quiz-option {
+            background: rgba(255, 255, 255, 0.4);
+            padding: 12px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            border: 2px solid transparent;
+        }
+
+        .quiz-option:hover {
+            background: rgba(255, 255, 255, 0.6);
+            border-color: #66bb6a;
+        }
+
+        .quiz-option.correct {
+            background: rgba(76, 175, 80, 0.4);
+            border-color: #4caf50;
+        }
+
+        .quiz-option.wrong {
+            background: rgba(244, 67, 54, 0.3);
+            border-color: #f44336;
+        }
+
+        .score-display {
+            background: linear-gradient(135deg, #4caf50, #2e7d32);
+            color: white;
+            padding: 15px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.3);
+            font-size: 1rem;
+            margin: 10px 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: #66bb6a;
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        /* موجات صوتية */
+        .sound-waves {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            gap: 3px;
+            margin: 10px 0;
+        }
+
+        .sound-waves.active {
+            display: flex;
+        }
+
+        .wave {
+            width: 4px;
+            height: 20px;
+            background: linear-gradient(135deg, #66bb6a, #388e3c);
+            border-radius: 2px;
+            animation: wave-animation 1s ease-in-out infinite;
+        }
+
+        .wave:nth-child(2) { animation-delay: 0.1s; }
+        .wave:nth-child(3) { animation-delay: 0.2s; }
+        .wave:nth-child(4) { animation-delay: 0.3s; }
+        .wave:nth-child(5) { animation-delay: 0.4s; }
+
+        @keyframes wave-animation {
+            0%, 100% { height: 20px; }
+            50% { height: 40px; }
+        }
+
+        .celebration {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            z-index: 1000;
+            display: none;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .celebration.show {
+            display: block;
+            animation: celebration-pop 0.5s ease-out;
+        }
+
+        @keyframes celebration-pop {
+            0% { transform: translate(-50%, -50%) scale(0.5); opacity: 0; }
+            100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+        }
+
+        .animal-card {
+            background: rgba(255, 255, 255, 0.4);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .animal-card:hover {
+            background: rgba(255, 255, 255, 0.6);
+            transform: scale(1.05);
+            border-color: #66bb6a;
+        }
+
+        .animal-emoji {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .drag-item {
+            background: rgba(255, 255, 255, 0.4);
+            padding: 10px 15px;
+            border-radius: 10px;
+            margin: 5px;
+            cursor: grab;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .drag-item:hover {
+            background: rgba(255, 255, 255, 0.6);
+            transform: scale(1.05);
+        }
+
+        .drop-zone {
+            min-height: 60px;
+            border: 2px dashed rgba(102, 187, 106, 0.5);
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .drop-zone.drag-over {
+            border-color: #66bb6a;
+            background: rgba(102, 187, 106, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .activities-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .activity-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="animated-bg" id="animatedBg"></div>
+    
+    <div class="watermark">
+        إبراهيم الحجيلي
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <h1>🌿 الدرس الثاني - اللغة الإنجليزية 🌿</h1>
+            <p>الصف الرابع الابتدائي - العام الدراسي 1447هـ</p>
+            <p style="margin-top: 10px; font-size: 1rem;">الحيوانات والعائلة والأفعال الأساسية</p>
+        </div>
+
+        <div class="activities-grid">
+            <!-- النشاط الأول: تعلم أسماء الحيوانات -->
+            <div class="activity-card">
+                <div class="activity-title">
+                    <div class="activity-number">1</div>
+                    تعلم أسماء الحيوانات (Animals)
+                </div>
+                <div class="word-grid">
+                    <div class="animal-card" onclick="speakWord('cat', 'قطة')">
+                        <div class="animal-emoji">🐱</div>
+                        <div class="word-english">Cat</div>
+                        <div class="word-arabic">قطة</div>
+                    </div>
+                    <div class="animal-card" onclick="speakWord('dog', 'كلب')">
+                        <div class="animal-emoji">🐶</div>
+                        <div class="word-english">Dog</div>
+                        <div class="word-arabic">كلب</div>
+                    </div>
+                    <div class="animal-card" onclick="speakWord('bird', 'طائر')">
+                        <div class="animal-emoji">🐦</div>
+                        <div class="word-english">Bird</div>
+                        <div class="word-arabic">طائر</div>
+                    </div>
+                    <div class="animal-card" onclick="speakWord('fish', 'سمكة')">
+                        <div class="animal-emoji">🐟</div>
+                        <div class="word-english">Fish</div>
+                        <div class="word-arabic">سمكة</div>
+                    </div>
+                </div>
+                <div class="sound-waves" id="soundWaves1">
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                </div>
+                <button class="btn" onclick="speakAllAnimals()">🔊 استمع لجميع الحيوانات</button>
+            </div>
+
+            <!-- النشاط الثاني: أفراد العائلة -->
+            <div class="activity-card">
+                <div class="activity-title">
+                    <div class="activity-number">2</div>
+                    أفراد العائلة (Family)
+                </div>
+                <div class="word-grid">
+                    <div class="word-card" onclick="speakWord('father', 'أب')">
+                        <div style="font-size: 2rem; margin-bottom: 5px;">👨</div>
+                        <div class="word-english">Father</div>
+                        <div class="word-arabic">أب</div>
+                    </div>
+                    <div class="word-card" onclick="speakWord('mother', 'أم')">
+                        <div style="font-size: 2rem; margin-bottom: 5px;">👩</div>
+                        <div class="word-english">Mother</div>
+                        <div class="word-arabic">أم</div>
+                    </div>
+                    <div class="word-card" onclick="speakWord('brother', 'أخ')">
+                        <div style="font-size: 2rem; margin-bottom: 5px;">👦</div>
+                        <div class="word-english">Brother</div>
+                        <div class="word-arabic">أخ</div>
+                    </div>
+                    <div class="word-card" onclick="speakWord('sister', 'أخت')">
+                        <div style="font-size: 2rem; margin-bottom: 5px;">👧</div>
+                        <div class="word-english">Sister</div>
+                        <div class="word-arabic">أخت</div>
+                    </div>
+                </div>
+                <div class="sound-waves" id="soundWaves2">
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                </div>
+                <button class="btn" onclick="speakAllFamily()">👨‍👩‍👧‍👦 استمع لأفراد العائلة</button>
+            </div>
+
+            <!-- النشاط الثالث: الأفعال الأساسية -->
+            <div class="activity-card">
+                <div class="activity-title">
+                    <div class="activity-number">3</div>
+                    الأفعال الأساسية (Actions)
+                </div>
+                <div class="word-grid">
+                    <div class="word-card" onclick="speakWord('run', 'يجري')">
+                        <div style="font-size: 2rem; margin-bottom: 5px;">🏃</div>
+                        <div class="word-english">Run</div>
+                        <div class="word-arabic">يجري</div>
+                    </div>
+                    <div class="word-card" onclick="speakWord('jump', 'يقفز')">
+                        <div style="font-size: 2rem; margin-bottom: 5px;">🤸</div>
+                        <div class="word-english">Jump</div>
+                        <div class="word-arabic">يقفز</div>
+                    </div>
+                    <div class="word-card" onclick="speakWord('eat', 'يأكل')">
+                        <div style="font-size: 2rem; margin-bottom: 5px;">🍽️</div>
+                        <div class="word-english">Eat</div>
+                        <div class="word-arabic">يأكل</div>
+                    </div>
+                    <div class="word-card" onclick="speakWord('sleep', 'ينام')">
+                        <div style="font-size: 2rem; margin-bottom: 5px;">😴</div>
+                        <div class="word-english">Sleep</div>
+                        <div class="word-arabic">ينام</div>
+                    </div>
+                </div>
+                <div class="sound-waves" id="soundWaves3">
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                </div>
+                <button class="btn" onclick="speakAllActions()">⚡ استمع لجميع الأفعال</button>
+            </div>
+
+            <!-- النشاط الرابع: اختبار الحيوانات -->
+            <div class="activity-card">
+                <div class="activity-title">
+                    <div class="activity-number">4</div>
+                    اختبار الحيوانات
+                </div>
+                <div class="quiz-question">
+                    <div style="text-align: center; font-size: 4rem; margin: 15px 0;">🐱</div>
+                    <p><strong>ما اسم هذا الحيوان بالإنجليزية؟</strong></p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="checkAnimalAnswer(this, true)">Cat</div>
+                        <div class="quiz-option" onclick="checkAnimalAnswer(this, false)">Dog</div>
+                        <div class="quiz-option" onclick="checkAnimalAnswer(this, false)">Bird</div>
+                        <div class="quiz-option" onclick="checkAnimalAnswer(this, false)">Fish</div>
+                    </div>
+                </div>
+                <div id="animalScore" class="score-display" style="display: none;">
+                    🐾 ممتاز! إجابة صحيحة
+                </div>
+            </div>
+
+            <!-- النشاط الخامس: مطابقة أفراد العائلة -->
+            <div class="activity-card">
+                <div class="activity-title">
+                    <div class="activity-number">5</div>
+                    مطابقة أفراد العائلة
+                </div>
+                <p><strong>اسحب الكلمة الإنجليزية إلى المعنى العربي المناسب:</strong></p>
+                <div style="display: flex; justify-content: space-between; flex-wrap: wrap; margin: 20px 0;">
+                    <div style="flex: 1; min-width: 200px;">
+                        <h4 style="color: #2e7d32; margin-bottom: 10px;">الكلمات الإنجليزية:</h4>
+                        <div class="drag-item" draggable="true" ondragstart="drag(event)" id="father">Father</div>
+                        <div class="drag-item" draggable="true" ondragstart="drag(event)" id="mother">Mother</div>
+                        <div class="drag-item" draggable="true" ondragstart="drag(event)" id="brother">Brother</div>
+                        <div class="drag-item" draggable="true" ondragstart="drag(event)" id="sister">Sister</div>
+                    </div>
+                    <div style="flex: 1; min-width: 200px;">
+                        <h4 style="color: #2e7d32; margin-bottom: 10px;">المعاني العربية:</h4>
+                        <div class="drop-zone" ondrop="drop(event, 'father')" ondragover="allowDrop(event)">أب 👨</div>
+                        <div class="drop-zone" ondrop="drop(event, 'mother')" ondragover="allowDrop(event)">أم 👩</div>
+                        <div class="drop-zone" ondrop="drop(event, 'brother')" ondragover="allowDrop(event)">أخ 👦</div>
+                        <div class="drop-zone" ondrop="drop(event, 'sister')" ondragover="allowDrop(event)">أخت 👧</div>
+                    </div>
+                </div>
+                <div id="matchingResult"></div>
+            </div>
+
+            <!-- النشاط السادس: اختبار الأفعال -->
+            <div class="activity-card">
+                <div class="activity-title">
+                    <div class="activity-number">6</div>
+                    اختبار الأفعال
+                </div>
+                <div class="quiz-question">
+                    <div style="text-align: center; font-size: 4rem; margin: 15px 0;">🏃</div>
+                    <p><strong>ما معنى هذا الفعل؟</strong></p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="checkActionAnswer(this, false)">يقفز</div>
+                        <div class="quiz-option" onclick="checkActionAnswer(this, true)">يجري</div>
+                        <div class="quiz-option" onclick="checkActionAnswer(this, false)">يأكل</div>
+                        <div class="quiz-option" onclick="checkActionAnswer(this, false)">ينام</div>
+                    </div>
+                </div>
+                <div id="actionScore" class="score-display" style="display: none;">
+                    ⚡ رائع! إجابة صحيحة
+                </div>
+            </div>
+
+            <!-- النشاط السابع: كتابة الكلمات -->
+            <div class="activity-card">
+                <div class="activity-title">
+                    <div class="activity-number">7</div>
+                    اكتب الكلمة الصحيحة
+                </div>
+                <div style="text-align: center; margin: 20px 0;">
+                    <div style="font-size: 4rem; margin-bottom: 10px;">🐶</div>
+                    <p><strong>اكتب اسم هذا الحيوان بالإنجليزية:</strong></p>
+                </div>
+                <input type="text" class="input-field" id="animalInput" placeholder="اكتب الإجابة هنا...">
+                <button class="btn" onclick="checkAnimalWriting()">✓ تحقق من الإجابة</button>
+                <div id="writingResult"></div>
+            </div>
+
+            <!-- النشاط الثامن: لعبة الذاكرة -->
+            <div class="activity-card">
+                <div class="activity-title">
+                    <div class="activity-number">8</div>
+                    لعبة ذاكرة الحيوانات
+                </div>
+                <p><strong>احفظ ترتيب الحيوانات ثم أعد ترتيبها:</strong></p>
+                <div id="memoryDisplay" style="text-align: center; font-size: 3rem; margin: 20px 0;">
+                    <!-- سيتم ملؤها بـ JavaScript -->
+                </div>
+                <button class="btn" onclick="startAnimalMemory()">🧠 ابدأ اللعبة</button>
+                <div id="memoryOptions" style="display: none; text-align: center; margin: 20px 0;">
+                    <div class="animal-card" onclick="selectAnimal('🐱')" style="display: inline-block; margin: 5px;">🐱</div>
+                    <div class="animal-card" onclick="selectAnimal('🐶')" style="display: inline-block; margin: 5px;">🐶</div>
+                    <div class="animal-card" onclick="selectAnimal('🐦')" style="display: inline-block; margin: 5px;">🐦</div>
+                    <div class="animal-card" onclick="selectAnimal('🐟')" style="display: inline-block; margin: 5px;">🐟</div>
+                </div>
+                <div id="memoryResult"></div>
+            </div>
+
+            <!-- النشاط التاسع: إنشاء جملة عن العائلة -->
+            <div class="activity-card">
+                <div class="activity-title">
+                    <div class="activity-number">9</div>
+                    إنشاء جملة عن العائلة
+                </div>
+                <p><strong>اختر الكلمات لتكوين جملة صحيحة:</strong></p>
+                <div class="word-grid">
+                    <div class="word-card" onclick="addToFamilySentence('My')">My</div>
+                    <div class="word-card" onclick="addToFamilySentence('father')">father</div>
+                    <div class="word-card" onclick="addToFamilySentence('is')">is</div>
+                    <div class="word-card" onclick="addToFamilySentence('tall')">tall</div>
+                    <div class="word-card" onclick="addToFamilySentence('mother')">mother</div>
+                    <div class="word-card" onclick="addToFamilySentence('kind')">kind</div>
+                </div>
+                <div class="drop-zone" style="min-height: 60px;">
+                    الجملة: <span id="familySentence"></span>
+                </div>
+                <button class="btn" onclick="clearFamilySentence()">🗑️ مسح</button>
+                <button class="btn" onclick="speakFamilySentence()">🔊 استمع للجملة</button>
+            </div>
+
+            <!-- النشاط العاشر: اختبار شامل -->
+            <div class="activity-card">
+                <div class="activity-title">
+                    <div class="activity-number">10</div>
+                    الاختبار الشامل
+                </div>
+                <div id="finalQuiz">
+                    <div class="quiz-question">
+                        <p><strong>السؤال 1: ما معنى كلمة "Cat"؟</strong></p>
+                        <div class="quiz-options">
+                            <div class="quiz-option" onclick="answerFinal(this, true, 1)">قطة</div>
+                            <div class="quiz-option" onclick="answerFinal(this, false, 1)">كلب</div>
+                            <div class="quiz-option" onclick="answerFinal(this, false, 1)">طائر</div>
+                        </div>
+                    </div>
+                </div>
+                <div id="finalScore" class="score-display" style="display: none;">
+                    النتيجة النهائية: <span id="totalFinalScore">0</span>/5
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- نافذة الاحتفال -->
+    <div class="celebration" id="celebration">
+        <h2 style="color: #4caf50; margin-bottom: 20px;">🎉 مبروك! 🎉</h2>
+        <p style="font-size: 1.2rem; margin-bottom: 20px;">لقد أكملت النشاط بنجاح!</p>
+        <button class="btn" onclick="closeCelebration()">متابعة</button>
+    </div>
+
+    <script>
+        // إنشاء الأوراق المتحركة
+        function createLeaves() {
+            const animatedBg = document.getElementById('animatedBg');
+            for (let i = 0; i < 12; i++) {
+                const leaf = document.createElement('div');
+                leaf.className = 'leaf';
+                leaf.style.left = Math.random() * 100 + '%';
+                leaf.style.width = leaf.style.height = Math.random() * 30 + 15 + 'px';
+                leaf.style.animationDelay = Math.random() * 20 + 's';
+                leaf.style.animationDuration = (Math.random() * 15 + 15) + 's';
+                animatedBg.appendChild(leaf);
+            }
+        }
+
+        // تشغيل الكلام
+        function speakWord(word, arabic) {
+            if ('speechSynthesis' in window) {
+                showSoundWaves();
+                const utterance = new SpeechSynthesisUtterance(word);
+                utterance.lang = 'en-US';
+                utterance.rate = 0.8;
+                utterance.onend = hideSoundWaves;
+                speechSynthesis.speak(utterance);
+            }
+        }
+
+        function speakAllAnimals() {
+            const animals = ['cat', 'dog', 'bird', 'fish'];
+            speakWordList(animals);
+        }
+
+        function speakAllFamily() {
+            const family = ['father', 'mother', 'brother', 'sister'];
+            speakWordList(family);
+        }
+
+        function speakAllActions() {
+            const actions = ['run', 'jump', 'eat', 'sleep'];
+            speakWordList(actions);
+        }
+
+        function speakWordList(words) {
+            let index = 0;
+            showSoundWaves();
+            
+            function speakNext() {
+                if (index < words.length) {
+                    const utterance = new SpeechSynthesisUtterance(words[index]);
+                    utterance.lang = 'en-US';
+                    utterance.rate = 0.8;
+                    utterance.onend = () => {
+                        index++;
+                        setTimeout(speakNext, 500);
+                    };
+                    speechSynthesis.speak(utterance);
+                } else {
+                    hideSoundWaves();
+                }
+            }
+            speakNext();
+        }
+
+        function showSoundWaves() {
+            const waves = document.querySelectorAll('.sound-waves');
+            waves.forEach(wave => wave.classList.add('active'));
+        }
+
+        function hideSoundWaves() {
+            const waves = document.querySelectorAll('.sound-waves');
+            waves.forEach(wave => wave.classList.remove('active'));
+        }
+
+        // فحص إجابات الحيوانات
+        function checkAnimalAnswer(element, isCorrect) {
+            const options = element.parentNode.querySelectorAll('.quiz-option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+                if (option === element) {
+                    option.classList.add(isCorrect ? 'correct' : 'wrong');
+                } else if (option.textContent === 'Cat') {
+                    option.classList.add('correct');
+                }
+            });
+            
+            if (isCorrect) {
+                document.getElementById('animalScore').style.display = 'block';
+                setTimeout(showCelebration, 500);
+            }
+        }
+
+        // فحص إجابات الأفعال
+        function checkActionAnswer(element, isCorrect) {
+            const options = element.parentNode.querySelectorAll('.quiz-option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+                if (option === element) {
+                    option.classList.add(isCorrect ? 'correct' : 'wrong');
+                } else if (option.textContent === 'يجري') {
+                    option.classList.add('correct');
+                }
+            });
+            
+            if (isCorrect) {
+                document.getElementById('actionScore').style.display = 'block';
+                setTimeout(showCelebration, 500);
+            }
+        }
+
+        // السحب والإفلات للعائلة
+        let matchedItems = 0;
+
+        function allowDrop(ev) {
+            ev.preventDefault();
+            ev.target.classList.add('drag-over');
+        }
+
+        function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);
+        }
+
+        function drop(ev, expectedId) {
+            ev.preventDefault();
+            ev.target.classList.remove('drag-over');
+            const data = ev.dataTransfer.getData("text");
+            
+            if (data === expectedId) {
+                const draggedElement = document.getElementById(data);
+                ev.target.appendChild(draggedElement);
+                ev.target.style.background = 'rgba(76, 175, 80, 0.3)';
+                ev.target.style.borderColor = '#4caf50';
+                matchedItems++;
+                
+                if (matchedItems === 4) {
+                    document.getElementById('matchingResult').innerHTML = 
+                        '<div class="score-display">🎉 ممتاز! جميع المطابقات صحيحة</div>';
+                    setTimeout(showCelebration, 500);
+                }
+            } else {
+                ev.target.style.background = 'rgba(244, 67, 54, 0.3)';
+                ev.target.style.borderColor = '#f44336';
+                setTimeout(() => {
+                    ev.target.style.background = 'rgba(255, 255, 255, 0.2)';
+                    ev.target.style.borderColor = 'rgba(102, 187, 106, 0.5)';
+                }, 1000);
+            }
+        }
+
+        // كتابة الحيوانات
+        function checkAnimalWriting() {
+            const input = document.getElementById('animalInput');
+            const result = document.getElementById('writingResult');
+            const answer = input.value.toLowerCase().trim();
+            
+            if (answer === 'dog') {
+                result.innerHTML = '<div class="score-display">🐶 ممتاز! إجابة صحيحة</div>';
+                setTimeout(showCelebration, 500);
+            } else {
+                result.innerHTML = '<div style="background: rgba(244, 67, 54, 0.3); color: #d32f2f; padding: 10px; border-radius: 10px; text-align: center;">❌ حاول مرة أخرى. الإجابة الصحيحة هي: Dog</div>';
+            }
+        }
+
+        // لعبة ذاكرة الحيوانات
+        let memorySequence = [];
+        let userSequence = [];
+        let memoryGameActive = false;
+
+        function startAnimalMemory() {
+            const animals = ['🐱', '🐶', '🐦', '🐟'];
+            memorySequence = [];
+            userSequence = [];
+            
+            for (let i = 0; i < 3; i++) {
+                memorySequence.push(animals[Math.floor(Math.random() * animals.length)]);
+            }
+            
+            const display = document.getElementById('memoryDisplay');
+            display.textContent = memorySequence.join(' ');
+            
+            setTimeout(() => {
+                display.textContent = '؟ ؟ ؟';
+                document.getElementById('memoryOptions').style.display = 'block';
+                memoryGameActive = true;
+            }, 3000);
+        }
+
+        function selectAnimal(animal) {
+            if (!memoryGameActive) return;
+            
+            userSequence.push(animal);
+            document.getElementById('memoryDisplay').textContent = userSequence.join(' ');
+            
+            if (userSequence.length === memorySequence.length) {
+                const result = document.getElementById('memoryResult');
+                if (JSON.stringify(userSequence) === JSON.stringify(memorySequence)) {
+                    result.innerHTML = '<div class="score-display">🧠 ممتاز! ذاكرة قوية</div>';
+                    setTimeout(showCelebration, 500);
+                } else {
+                    result.innerHTML = `<div style="background: rgba(244, 67, 54, 0.3); color: #d32f2f; padding: 10px; border-radius: 10px; text-align: center;">❌ الترتيب الصحيح: ${memorySequence.join(' ')}</div>`;
+                }
+                memoryGameActive = false;
+                document.getElementById('memoryOptions').style.display = 'none';
+            }
+        }
+
+        // بناء جملة العائلة
+        let familySentence = [];
+
+        function addToFamilySentence(word) {
+            familySentence.push(word);
+            document.getElementById('familySentence').textContent = familySentence.join(' ');
+        }
+
+        function clearFamilySentence() {
+            familySentence = [];
+            document.getElementById('familySentence').textContent = '';
+        }
+
+        function speakFamilySentence() {
+            if (familySentence.length > 0 && 'speechSynthesis' in window) {
+                showSoundWaves();
+                const utterance = new SpeechSynthesisUtterance(familySentence.join(' '));
+                utterance.lang = 'en-US';
+                utterance.rate = 0.8;
+                utterance.onend = hideSoundWaves;
+                speechSynthesis.speak(utterance);
+            }
+        }
+
+        // الاختبار الشامل
+        let finalScore = 0;
+        let currentFinalQuestion = 1;
+
+        function answerFinal(element, isCorrect, questionNum) {
+            const options = element.parentNode.querySelectorAll('.quiz-option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+                if (option === element) {
+                    option.classList.add(isCorrect ? 'correct' : 'wrong');
+                } else if (questionNum === 1 && option.textContent === 'قطة') {
+                    option.classList.add('correct');
+                }
+            });
+            
+            if (isCorrect) {
+                finalScore++;
+            }
+            
+            setTimeout(() => {
+                if (currentFinalQuestion < 5) {
+                    showNextFinalQuestion();
+                } else {
+                    showFinalResult();
+                }
+            }, 1000);
+        }
+
+        function showNextFinalQuestion() {
+            currentFinalQuestion++;
+            const quiz = document.getElementById('finalQuiz');
+            
+            const questions = [
+                {
+                    question: "السؤال 2: ما معنى كلمة 'Father'؟",
+                    options: ["أم", "أب", "أخ"],
+                    correct: 1
+                },
+                {
+                    question: "السؤال 3: ما معنى الفعل 'Jump'؟",
+                    options: ["يجري", "يقفز", "يأكل"],
+                    correct: 1
+                },
+                {
+                    question: "السؤال 4: ما اسم هذا الحيوان 🐦؟",
+                    options: ["Cat", "Bird", "Fish"],
+                    correct: 1
+                },
+                {
+                    question: "السؤال 5: ما معنى كلمة 'Sister'؟",
+                    options: ["أخت", "أم", "أخ"],
+                    correct: 0
+                }
+            ];
+            
+            const q = questions[currentFinalQuestion - 2];
+            quiz.innerHTML = `
+                <div class="quiz-question">
+                    <p><strong>${q.question}</strong></p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="answerFinal(this, ${q.correct === 0}, ${currentFinalQuestion})">${q.options[0]}</div>
+                        <div class="quiz-option" onclick="answerFinal(this, ${q.correct === 1}, ${currentFinalQuestion})">${q.options[1]}</div>
+                        <div class="quiz-option" onclick="answerFinal(this, ${q.correct === 2}, ${currentFinalQuestion})">${q.options[2]}</div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function showFinalResult() {
+            document.getElementById('totalFinalScore').textContent = finalScore;
+            document.getElementById('finalScore').style.display = 'block';
+            if (finalScore >= 3) {
+                setTimeout(showCelebration, 500);
+            }
+        }
+
+        // الاحتفال
+        function showCelebration() {
+            document.getElementById('celebration').classList.add('show');
+        }
+
+        function closeCelebration() {
+            document.getElementById('celebration').classList.remove('show');
+        }
+
+        // تهيئة الصفحة
+        window.onload = function() {
+            createLeaves();
+        };
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'973326df104c2cf9',t:'MTc1NTg3MzkwNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
+ 
